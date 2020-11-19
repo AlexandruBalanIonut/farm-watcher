@@ -12,6 +12,16 @@ function PriceGraph() {
         let element: HTMLElement = document.getElementById('price-chart')!;
         let context:CanvasRenderingContext2D = (element as HTMLCanvasElement).getContext('2d')!;
         
+        /**
+         * background-image: linear-gradient(to right bottom, #f16491, #fe7973, #f9965c, #e8b355, #cdcf65);
+         */
+        var gradient = context.createLinearGradient(0,0,500,500);
+        gradient.addColorStop(0, "#f16491");
+        gradient.addColorStop(0.25, "#fe7973");
+        gradient.addColorStop(0.40, "#f9965c");
+        gradient.addColorStop(0.75, "#e8b355");
+        gradient.addColorStop(1, "#cdcf65");
+
         new Chart(context, {
             type: 'line',
             data: {
@@ -20,18 +30,57 @@ function PriceGraph() {
                     {
                         label: "Price",
                         data: prices,
-                        pointRadius: 8,
+                        pointRadius: window.innerWidth < 640 ? 6 : 7,
+                        pointHoverRadius: window.innerWidth < 640 ? 7 : 9,
+                        hitRadius: window.innerWidth < 640 ? 7 : 1,
                         pointBackgroundColor: "white",
-                        backgroundColor: "rgba(255,255,255,0.7)"
+                        backgroundColor: gradient
                     }
                 ]
+            },
+            options: {
+                scales: {
+                    xAxes:  [{
+                        ticks: {
+                            display: false
+                        }
+                    }],
+
+                    yAxes: [{
+                        ticks: {
+                            maxTicksLimit: 5,
+                            fontFamily: "IBM Plex Sans",
+                            fontColor: "white",
+                            fontSize: window.innerWidth < 640 ? 14 : 18
+                        }
+                    }]
+                },
+                layout: {
+                    padding: {
+                        left: 7,
+                        right: 7
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: true,
+                legend: {
+                    labels: {
+                        fontFamily: "IBM Plex Sans",
+                        fontColor: "white",
+                        fontSize: window.innerWidth < 640 ? 18 : 24
+                    }
+                },
+                animation: {
+                    duration: 1200,
+                    easing: "easeInOutSine"
+                }
             }
         });
     });
 
     return (
-        <div className="container mx-auto overflow-hidden">
-            <canvas id="price-chart"></canvas>
+        <div className="w-100 sm:w-10/12 mx-auto overflow-hidden">
+            <canvas className="w-100" id="price-chart"></canvas>
         </div>
     );
 }

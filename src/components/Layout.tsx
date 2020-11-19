@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import Logo from "./high-level/Logo";
 import MarketOverview from "./high-level/MarketOverview";
 import PriceGraph from "./high-level/PriceGraph";
+import StrategiesOverview from "./high-level/StrategiesOverview";
 
 function Layout() {
     return(
@@ -17,6 +18,7 @@ function Layout() {
                 <Suspense fallback={<div>Loading...</div>}>
                     <PriceGraph />
                 </Suspense>
+                <StrategiesOverview />
             </main>
 
             <footer></footer>

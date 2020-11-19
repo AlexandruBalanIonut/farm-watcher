@@ -10,7 +10,7 @@ function MarketOverview() {
 
     return (
         <div className="flex flex-col sm:flex-row justify-center content-center text-center text-xl sm:text-2xl font-semibold my-6">
-            <h2 className="text-white mr-6">1 {COIN_NAME} = {statObject.price}</h2>
+            <h2 className="text-white sm:mr-6">1 {COIN_NAME} = {statObject.price}</h2>
             <MarketStat {...statObject}/>
         </div>
     );

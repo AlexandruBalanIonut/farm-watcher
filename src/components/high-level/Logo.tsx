@@ -10,7 +10,7 @@ function Logo() {
 
     return(
         <div>
-            <div className="w-screen flex justify-center">
+            <div className="w-100 flex justify-center">
                 <Image {...image} />
             </div>
             <h1 className="text-center font-bold text-4xl sm:text-6xl">FarmWatch</h1>
