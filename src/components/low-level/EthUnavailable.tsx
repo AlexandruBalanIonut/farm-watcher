@@ -41,9 +41,9 @@ function EthUnavailable() {
     }
     else {
         return (
-            <div className="flex justify-center">
-                <button onClick={() => enableWeb3()} className="mr-4 px-2 bg-yellow-300 text-black font-bold text-lg">Connect to Metamask</button>
-                <img width="32" height="32" src="/assets/images/metamask.svg" alt="MetamaskLogo"/>
+            <div className="flex justify-center mb-10">
+                <button onClick={() => enableWeb3()} className="mr-4 p-2 bg-primary rounded-md text-black font-bold text-xl">Connect to Metamask</button>
+                <img width="42" height="42" src="/assets/images/metamask.svg" alt="MetamaskLogo"/>
             </div>
         );
     }
