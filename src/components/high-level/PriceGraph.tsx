@@ -15,12 +15,10 @@ function PriceGraph() {
         /**
          * background-image: linear-gradient(to right bottom, #f16491, #fe7973, #f9965c, #e8b355, #cdcf65);
          */
-        var gradient = context.createLinearGradient(0,0,500,500);
-        gradient.addColorStop(0, "#f16491");
-        gradient.addColorStop(0.25, "#fe7973");
-        gradient.addColorStop(0.40, "#f9965c");
-        gradient.addColorStop(0.75, "#e8b355");
-        gradient.addColorStop(1, "#cdcf65");
+        var gradient = context.createLinearGradient(0,0,1000,1000);
+        gradient.addColorStop(0, "#FDD854");
+        gradient.addColorStop(0.5, "#FFB46F");
+        gradient.addColorStop(1, "#F44884");
 
         new Chart(context, {
             type: 'line',

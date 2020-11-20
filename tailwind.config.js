@@ -11,7 +11,13 @@ module.exports = {
     'public/**/*.html',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#FDD854",
+        secondary: "#F44884",
+        textColorDark: "#121212",
+      }
+    },
   },
   darkMode: 'class',
   variants: {},

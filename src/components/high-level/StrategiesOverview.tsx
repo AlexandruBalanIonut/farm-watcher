@@ -1,27 +1,26 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import Web3 from "web3";
+import React, { useEffect } from "react";
+import { useRecoilValue } from "recoil";
+import { web3EnabledAtom } from "../../utils/StateManager";
+import EthUnavailable from "../low-level/EthUnavailable";
+import VaultGrid from "./VaultGrid";
 
 function StrategiesOverview() {
     require('web3');
 
-    const [web3Enabled, setWeb3Enabled] = useState(<h1>Unfortunatley we couldn't detect any Ethereum Wallet Extension</h1>);
-    
-    useEffect(() => {
-        const ethEnabled = () => {
-            if ((window as any).ethereum) {
-                (window as any).web3 = new Web3((window as any).ethereum);
-                (window as any).ethereum.enable();
-                setWeb3Enabled(<></>);
-            }
-        }
+    let web3Enabled = useRecoilValue(web3EnabledAtom);
+    let web3ConnectComponent = (<EthUnavailable />);
 
-        ethEnabled();
-    });
+    useEffect(() => {
+        if (web3Enabled) {
+            console.log("Connected to Ethereum network");
+        }
+    }, [web3Enabled]);
 
     return(
         <div className="w-100">
-            <h1 className="mt-6 text-white text-center font-semibold text-2xl sm:text-4xl">Monitor Harvest Vaults</h1>
-            <h1 className="text-white">{web3Enabled}</h1>
+            <h1 className="mt-6 mb-4 text-white text-center font-semibold text-2xl sm:text-4xl">Monitor Harvest Vaults</h1>
+            {web3ConnectComponent}
+            <VaultGrid />
         </div>
     );
 }
