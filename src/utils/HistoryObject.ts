@@ -4,8 +4,8 @@ import InfoFetcher from "./InfoFetcher";
  * This object represents the 7-day price history of FARM relative to USD
  */
 class HistoryObject {
-    prices: Array<number> = new Array();
-    datePoints: Array<string> = new Array();
+    prices: Array<number> = [];
+    datePoints: Array<string> = [];
 }
 
 async function getHistoryObject(): Promise<HistoryObject> {
@@ -15,7 +15,7 @@ async function getHistoryObject(): Promise<HistoryObject> {
 
         let data = response.data["prices"];
 
-        let historyObject: HistoryObject = new HistoryObject;
+        let historyObject: HistoryObject = new HistoryObject();
 
         data.forEach((item: any) => {
             historyObject.prices.push(item[1]);
@@ -28,11 +28,11 @@ async function getHistoryObject(): Promise<HistoryObject> {
     .catch(reason => {
         console.error(reason);
 
-        return new HistoryObject;
+        return new HistoryObject();
     });
 }
 
-const fetcher = new InfoFetcher;
+const fetcher = new InfoFetcher();
 
 export default HistoryObject;
 export { getHistoryObject }

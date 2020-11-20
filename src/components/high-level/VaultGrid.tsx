@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { F_DAI, F_TUSD, F_USDC, F_USDT, F_WBTC, F_WETH } from "../../utils/Constants";
+import { F_CRVRENBTC, F_DAI, F_RENBTC, F_TUSD, F_USDC, F_USDT, F_WBTC, F_WETH } from "../../utils/Constants";
 import Vault, { getNextStrategy, getNextStrategyTime, getStrategy, loadContract } from "../../utils/HarvestVault";
 import { web3EnabledAtom } from "../../utils/StateManager";
 import VaultCard from "../low-level/VaultCard";
@@ -13,8 +13,10 @@ function VaultGrid() {
     let fusdt = loadContract(F_USDT);
     let ftusd = loadContract(F_TUSD);
     let fwbtc = loadContract(F_WBTC);
+    let frenbtc = loadContract(F_RENBTC);
+    let fcrvrenbtc = loadContract(F_CRVRENBTC);
 
-    let vaults = [fdai, fweth, fusdc, fusdt, ftusd, fwbtc];
+    let vaults = [fdai, fweth, fusdc, fusdt, ftusd, fwbtc, frenbtc, fcrvrenbtc];
 
     /**
      * Loads the data in all provided vaults
