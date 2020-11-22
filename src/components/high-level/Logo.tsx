@@ -13,7 +13,7 @@ function Logo() {
             <div className="w-100 flex justify-center">
                 <Image {...image} />
             </div>
-            <h1 className="text-white text-center font-bold text-4xl sm:text-6xl">FarmWatch</h1>
+            <h1 className="text-textColorLight text-center font-bold text-4xl sm:text-6xl">FarmWatch</h1>
         </div>
     );
 }

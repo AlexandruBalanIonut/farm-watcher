@@ -1,9 +1,8 @@
 import { Vault_ABI } from "./Constants";
 
-var web3 = require('web3');
 var Contract = require('web3-eth-contract');
 
-Contract.setProvider(web3.givenProvider);
+Contract.setProvider("wss://mainnet.infura.io/ws/v3/591c49f3212a4d4e93de53866e6f6265");
 
 /**
  * General description of a Harvest Vault

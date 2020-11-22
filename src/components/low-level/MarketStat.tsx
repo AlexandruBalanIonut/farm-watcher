@@ -15,7 +15,7 @@ function MarketStat(statObject: MarketStatObject) {
     return (
         <div className="dark flex justify-center content-center text-center">
             {chevronElement}
-            <p className="dark:text-white">{statObject.change}%</p>
+            <p className="dark:text-textColorLight">{statObject.change}% in the last 24 hours</p>
         </div>
     );
 }
