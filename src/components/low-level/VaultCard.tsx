@@ -16,7 +16,7 @@ function VaultCard(vault: Vault) {
     }
     else {
         cardStyle = "flex flex-col justify-center text-center rounded-md p-2 bg-gradient-to-br from-gray-700 to-gray-900"
-        cardTextStyle = "text-white"
+        cardTextStyle = "text-textColorLight"
         dividerStyle = "border-white"
         linkStyle = "text-blue-400"
     }
